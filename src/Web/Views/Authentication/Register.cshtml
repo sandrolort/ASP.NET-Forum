@@ -1,0 +1,36 @@
+@using Web.Resources
+@model UserCreateModelWithImage
+
+@{
+    ViewData["Title"] = @Common.Register;
+    Layout = "_Layout";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <label>@Common.Username</label>
+        <input type="text" class="form-control" placeholder="@Common.Username" asp-for="@Model.UserName">
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div>
+        <label>@Common.Password</label>
+        <input type="Password" class="form-control" placeholder="@Common.Password" asp-for="@Model.Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div>
+        <label>@Common.Email</label>
+        <input type="email" class="form-control" placeholder="@Common.Email" asp-for="@Model.Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label>@Common.ProfilePicture</label>
+        <input type="file" class="form-control" asp-for="@Model.ProfilePic" />
+    </div>
+    <div>
+        <input type="submit" value="@Common.Register" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

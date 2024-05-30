@@ -1,0 +1,36 @@
+@model UserResponseModel
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Web.Resources
+@using UserResponseModel = Common.DTOs.User.Response.UserResponseModel
+
+@{
+    Layout = "_Layout";
+}
+
+@* search bar that redirects to /ProfileSearch/{searchTerm} *@
+<form method="get">
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="@Common.Search" name="searchTerm">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">@Common.Search</button>
+    </div>
+</div>
+</form>
+
+@if (Model != null)
+{
+    <div class="card">
+        <div class="card-header">
+            <h1>@Model.UserName</h1>
+        </div>
+        <div class="card-body">
+            <p>@Common.Id: @Model.Id</p>
+            <p>@Common.Email: @Model.Email</p>
+            <p>@Common.Admin? @Model.IsAdmin</p>
+            <p>@Common.Banned? @Model.IsBanned</p>
+        </div>
+        <div class="card-footer">
+            <a href="/Profile/@Model.Id">@Common.Details</a>
+        </div>
+    </div>
+}

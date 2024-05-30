@@ -1,0 +1,34 @@
+html {
+  font-size: 14px;
+}
+
+.user {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+
+  object-fit: cover;
+}
+
+div {
+  margin: 10px;
+}
+
+div.shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-top: 100px;
+}

@@ -1,0 +1,40 @@
+@using Web.Resources
+@model IEnumerable<global::Common.DTOs.Topic.Response.TopicResponseModel>
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h2>@Admin.UnconfirmedTopics</h2>
+    </div>
+<div class="card-body">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>@Common.Topic</th>
+            <th>@Common.Content</th>
+            <th>@Common.Author</th>
+            <th>@Common.CreateDate</th>
+            <th>@Common.Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var topic in Model)
+        {
+            <tr>
+                <td>@topic.Title</td>
+                <td>@(topic.Content.Length > 50 ? topic.Content[..47]+"..." : topic.Content)</td>
+                <td>@topic.AuthorUserName</td>
+                <td>@topic.CreationDate</td>
+                <td>
+                    <a href="/SetStatus/@topic.Id/@true" class="btn btn-success">Confirm</a>
+                    <a href="/SetStatus/@topic.Id/@false" class="btn btn-danger">Hide</a>
+                </td>
+            </tr>
+        } 
+        </tbody>
+    </table>
+</div>
+</div>

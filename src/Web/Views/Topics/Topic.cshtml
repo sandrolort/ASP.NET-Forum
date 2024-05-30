@@ -1,0 +1,136 @@
+@using System.Security.Claims
+@using Common.Enums
+@using Web.Resources
+@model global::Common.DTOs.Topic.Response.TopicCommentResponseModel?
+@{
+    ViewData["Title"] = Model?.Topic.Title;
+    Layout = "_Layout";
+    
+    var isOwner = Model!.Topic.AuthorId == User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+@if (Model.Topic.BackgroundImageUrl != null)
+{
+<style>
+    #TopicDiv h5 {
+        color: white;
+        text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+    }
+    #TopicDiv p {
+        color: white;
+        text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+    }
+</style>
+}
+@if (Model != null)
+{
+    <div class="card mb-4 shadow" style="background-image: url('@Model.Topic.BackgroundImageUrl')" id="TopicDiv">
+        <div style="display: flex;">
+            <img onclick="window.location.href='../Profile/@Model.Topic.AuthorId'" src="@Model.Topic.AuthorProfilePicUrl" class="rounded-circle user" style="width: 100px; height: 100px;" alt="Card image">
+            <div style="padding-left: 10px; overflow: hidden" class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted stroke">@Model.Topic.AuthorUserName</h6>
+
+                <h5 class="card-title stroke">@Model.Topic.Title</h5>
+
+                <p class="card-text stroke">
+                    @Html.Raw(Model.Topic.Content)
+                </p>
+            </div>
+            @if (isOwner || User.IsInRole("Admin"))
+            {
+                <div>
+                    <button type="button" style="height: 50px" onclick="deleteTopic(@Model.Topic.Id)" class="btn btn-danger">@Common.Delete</button>
+                </div>
+                if (isOwner)
+                {
+                    <div>
+                        <button type="button" style="height: 50px" onclick="edit(@Model.Topic.Id)" class="btn btn-primary">@Common.Update</button>
+                    </div>
+                }
+            }
+        </div>
+        <div class="card-footer">
+            <p class="card-subtitle mb-2 text-muted" style="text-align: right">@Common.CreateDate: @Model.Topic.CreationDate</p>
+            @if (Model.Topic.ModifiedDate - Model.Topic.CreationDate > TimeSpan.FromSeconds(1))
+            {
+                <p class="card-subtitle mb-2 text-muted" style="text-align: right">@Common.LastActivity: @Model.Topic.ModifiedDate</p>
+            }
+            <p class="card-subtitle mb-2 text-muted" style="text-align: right">@Common.State: @Model.Topic.State, @Model.Topic.Status</p>
+        </div>
+    </div>
+    
+    <div style="margin-left: 100px">
+        @if (User.Identity is { IsAuthenticated: true } && Model.Topic.Status is Status.Active)
+        {
+            <div class="card-header">
+                <h4>@Common.CreateComment</h4>
+                @using (Html.BeginForm(FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <textarea class="form-control" id="comment" name="comment" rows="5"></textarea>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="@Common.Create"/>
+                }
+            </div>
+        }
+        @foreach (var comment in Model.Comments)
+        {
+            <div class="card mb-4 shadow">
+                <div style="display: flex;">
+                    <img onclick="window.location.href='../Profile/@comment.AuthorId'" src="@comment.AuthorProfilePicUrl" class="rounded-circle user" style="width: 100px; height: 100px;" alt="Card image">
+                    <div style="padding-left: 10px; overflow: hidden" class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">@comment.AuthorUserName</h6>
+                        <p class="card-text">
+                            @Html.Raw(comment.Content)
+                        </p>
+                    </div>
+                    @if (comment.AuthorId == User.FindFirstValue(ClaimTypes.NameIdentifier) || User.IsInRole("Admin"))
+                    {
+                        <button type="button" style="height: 50px" onclick="deleteComment(@comment.Id)" class="btn btn-danger">Delete</button>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    
+    <script>
+        async function deleteComment(commentId) {
+            try {
+                let response = await $.ajax({
+                    url: '/Comments/@Model.Topic.Id/'+commentId,
+                    type: 'DELETE',
+                    data: commentId
+                });
+                console.log(response);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            location.reload();
+        }
+        
+        async function deleteTopic(topicId) {
+            try {
+                let response = await $.ajax({
+                    url: '/Topics/'+topicId,
+                    type: 'DELETE',
+                    data: topicId
+                });
+                console.log(response);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            window.location.href = '/Topics';
+        }
+        
+        async function edit(topicId) {
+            window.location.href = '/Topics/'+topicId+'/Edit';
+        }
+    </script>
+}

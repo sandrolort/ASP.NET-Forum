@@ -1,0 +1,11 @@
+@using Web.Resources
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = @Common.DeleteProfile;
+}
+
+<h4>@Common.DeleteUserProfileQuestion</h4>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">@Common.Delete</button>
+</form>

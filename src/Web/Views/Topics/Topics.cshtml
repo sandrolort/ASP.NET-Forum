@@ -1,0 +1,106 @@
+@using Web.Resources
+@model PagedModel<global::Common.DTOs.Topic.Response.TopicResponseModel>
+
+@{
+    ViewData["Title"] = @Common.Topics;
+}
+
+<style>
+    .stroke {
+        color: white;
+        text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+    }
+</style>
+
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p class="lead">@Common.WelcomeToTopics</p>
+</div>
+<button class="btn btn-primary" type="button" onclick="$('#searchsort').collapse('toggle')">
+    @Common.Search/@Common.Sort
+</button>
+<btn class="btn btn-primary" onclick="window.location.href='/Topics/Create'">@Common.CreateTopic</btn>
+<div class="collapse" id="searchsort">
+    <div class="card card-body">
+        <div>
+            <span class="badge bg-primary" style="width: 100px">@Common.Search</span>
+            <input type="text" value="@Model.Search" placeholder="@Common.Title" id="search" class="form-control" style="width: 50%; margin-top: 10px"/>
+            <p> </p>
+        </div>
+        <div>
+            <span class="badge bg-primary" style="width: 100px">@Common.Sort</span>
+            <input type="text" value="@Model.OrderBy" placeholder="Id desc, CommentCount asc" id="sort" class="form-control" style="width: 50%; margin-top: 10px"/>
+            <p> </p>
+        </div>
+        <button onclick="search()" class="btn btn-primary" style="margin-top: 10px">Go</button>
+    </div>
+</div>
+@foreach (var topic in Model.Items)
+{
+    <div class="card mb-4 shadow" onclick="@($"window.location.href='/Topics/{topic.Id}'")">
+        <div style="display: flex;">
+            <img src="@topic.AuthorProfilePicUrl" class="rounded-circle user" style="width: 100px; height: 100px" alt="Card image">
+            <div style="padding-left: 10px" class="card-body">
+                
+                <h6 class="card-subtitle mb-2 text-muted">@topic.AuthorUserName</h6>
+
+                <h5 class="card-title">@topic.Title</h5>
+
+                <p class="card-text">
+                    @if (topic.Content.Length > 100)
+                    {
+                        @Html.Raw(topic.Content[..100] + "...")
+                    }
+                    else
+                    {
+                        @Html.Raw(topic.Content)
+                    }
+                </p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <p class="card-subtitle mb-2 text-muted" style="text-align: right">@Common.CreateDate: @topic.CreationDate</p>
+            @if (topic.ModifiedDate - topic.CreationDate > TimeSpan.FromSeconds(1))
+            {
+                <p class="card-subtitle mb-2 text-muted" style="text-align: right">@Common.LastActivity: @topic.ModifiedDate</p>
+            }
+            <h6 class="card-subtitle mb-2 text-muted" style="text-align: right">@topic.CommentCount @Common.Comments</h6>
+        </div>
+    </div>
+}
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        @* ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract *@
+        @if (Model?.Page > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Topics", new { PageNumber = Model.Page - 1 })">@Common.Previous</a>
+            </li>
+        }
+        @if (Model is not null && Model.Items.Any())
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Topics", new { PageNumber = Model?.Page + 1 })">@Common.Next</a>
+            </li>
+        }
+    </ul>
+</nav>
+
+<script>
+    function search() {
+        let search = document.getElementById("search").value;
+        let sort = document.getElementById("sort").value;
+        let hreflink = "";
+        if (search !== "") {
+            hreflink += `&search=${search}`;
+        }
+        if (sort !== "") {
+            hreflink += `&orderby=${sort}`;
+        }
+        window.location.href = `/Topics?${hreflink}`;
+    }
+</script>

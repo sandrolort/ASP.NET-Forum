@@ -1,0 +1,158 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Actions" xml:space="preserve">
+        <value>ქმედებები</value>
+    </data>
+    <data name="Admin" xml:space="preserve">
+        <value>ადმინი</value>
+    </data>
+    <data name="Author" xml:space="preserve">
+        <value>ავტორი</value>
+    </data>
+    <data name="BackgroundImage" xml:space="preserve">
+        <value>ფონის სურათი</value>
+    </data>
+    <data name="Ban" xml:space="preserve">
+        <value>გაგდება</value>
+    </data>
+    <data name="BanReasonPlaceholder" xml:space="preserve">
+        <value>შენ გაგდებული ხარ მიკი მაუსის კლუბიდან ცუდი ქცევისთვის! ნწნწ.</value>
+    </data>
+    <data name="Banned" xml:space="preserve">
+        <value>გაგდებულია</value>
+    </data>
+    <data name="ChangePassword" xml:space="preserve">
+        <value>შეცვალე პაროლი</value>
+    </data>
+    <data name="Comments" xml:space="preserve">
+        <value>კომენტარი</value>
+    </data>
+    <data name="Content" xml:space="preserve">
+        <value>შიგთავსი</value>
+    </data>
+    <data name="Create" xml:space="preserve">
+        <value>შექმენი</value>
+    </data>
+    <data name="CreateComment" xml:space="preserve">
+        <value>დაწერე კომენტარი</value>
+    </data>
+    <data name="CreateDate" xml:space="preserve">
+        <value>შექმნის თარიღი</value>
+    </data>
+    <data name="CreateTopic" xml:space="preserve">
+        <value>შექმენი თემა</value>
+    </data>
+    <data name="CreateTopicNote" xml:space="preserve">
+        <value>ადმინისტრატორებმა უნდა დაადასტურონ შენი პოსტი სანამ გამოჩნდება. ასევე, საკმარისი კომენტარები გჭირდება რომ პოსტის დადება შეძლო.</value>
+    </data>
+    <data name="Date" xml:space="preserve">
+        <value>თარიღი</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+        <value>წაშლა</value>
+    </data>
+    <data name="DeleteProfile" xml:space="preserve">
+        <value>ანგარიშის წაშლა</value>
+    </data>
+    <data name="DeleteUserProfileQuestion" xml:space="preserve">
+        <value>დარწმუნებული ხართ რომ გსურთ ანგარიშის წაშლა?</value>
+    </data>
+    <data name="Details" xml:space="preserve">
+        <value>დეტალები</value>
+    </data>
+    <data name="EditProfile" xml:space="preserve">
+        <value>პროფილის ცვლილება</value>
+    </data>
+    <data name="Email" xml:space="preserve">
+        <value>ელ-ფოსტა</value>
+    </data>
+    <data name="Id" xml:space="preserve">
+        <value>იდ.</value>
+    </data>
+    <data name="Login" xml:space="preserve">
+        <value>შესვლა</value>
+    </data>
+    <data name="Logout" xml:space="preserve">
+        <value>გასვლა</value>
+    </data>
+    <data name="NewPassword" xml:space="preserve">
+        <value>ახალი პაროლი</value>
+    </data>
+    <data name="Next" xml:space="preserve">
+        <value>შემდეგი</value>
+    </data>
+    <data name="OldPassword" xml:space="preserve">
+        <value>ძველი პაროლი</value>
+    </data>
+    <data name="Password" xml:space="preserve">
+        <value>პაროლი</value>
+    </data>
+    <data name="Previous" xml:space="preserve">
+        <value>წინა</value>
+    </data>
+    <data name="Privacy" xml:space="preserve">
+        <value>როგორ ვიპარავთ თქვენ ინფორმაციას (კონფინდენციალობის დებულება)</value>
+    </data>
+    <data name="Profile" xml:space="preserve">
+        <value>პროფილი</value>
+    </data>
+    <data name="ProfilePicture" xml:space="preserve">
+        <value>პროფილის სურათი</value>
+    </data>
+    <data name="Reason" xml:space="preserve">
+        <value>მიზეზი</value>
+    </data>
+    <data name="Register" xml:space="preserve">
+        <value>რეგისტრაცია</value>
+    </data>
+    <data name="Search" xml:space="preserve">
+        <value>ძებნა</value>
+    </data>
+    <data name="Sort" xml:space="preserve">
+        <value>დალაგება</value>
+    </data>
+    <data name="Title" xml:space="preserve">
+        <value>სათაური</value>
+    </data>
+    <data name="Topic" xml:space="preserve">
+        <value>თემა</value>
+    </data>
+    <data name="Topics" xml:space="preserve">
+        <value>თემები</value>
+    </data>
+    <data name="Update" xml:space="preserve">
+        <value>განახლება</value>
+    </data>
+    <data name="Username" xml:space="preserve">
+        <value>მომხმარებლის სახელი</value>
+    </data>
+    <data name="WelcomeToTopics" xml:space="preserve">
+        <value>მოგესალმებით თემების გვერდზე!</value>
+    </data>
+    <data name="Profiles" xml:space="preserve">
+        <value>პროფილები</value>
+    </data>
+    <data name="TopicIs" xml:space="preserve">
+        <value>თემა არის</value>
+    </data>
+    <data name="ModifiedDate" xml:space="preserve">
+        <value>ცვლილების დროა</value>
+    </data>
+    <data name="State" xml:space="preserve">
+        <value>მდგომარეობა</value>
+    </data>
+    <data name="LastActivity" xml:space="preserve">
+        <value>ბოლო ქმედება</value>
+    </data>
+</root>

@@ -1,0 +1,24 @@
+@using Web.Resources
+@model IEnumerable<global::Common.DTOs.User.Response.UserResponseModel>
+
+@{
+    Layout = "_Layout";
+}
+
+@foreach(var user in Model)
+{
+    <div class="card">
+        <div class="card-header">
+            <h1>@user.UserName</h1>
+        </div>
+        <div class="card-body">
+            <p>@Common.Id: @user.Id</p>
+            <p>@Common.Email: @user.Email</p>
+            <p>@Common.Admin? @user.IsAdmin</p>
+            <p>@Common.Banned? @user.IsBanned</p>
+        </div>
+        <div class="card-footer">
+            <a href="/Profile/@user.Id">@Common.Details</a>
+        </div>
+    </div>
+}

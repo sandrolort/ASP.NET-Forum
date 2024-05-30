@@ -1,0 +1,33 @@
+@using Web.Resources
+@model global::Common.DTOs.User.Request.UserLoginModel
+
+@{
+    ViewData["Title"] = "@Common.Login";
+}
+
+
+@if (ViewData["LoginFailed"] != null && (bool)ViewData["LoginFailed"]!)
+{
+    <div style="color: red;">@ErrorMessages.LoginFailed</div>
+}
+
+
+<form method="post">
+    <div>
+        <label>@Common.Username</label>
+        <input type="text" class="form-control" placeholder="@Common.Username" asp-for="UserName">
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div>
+        <label>@Common.Password</label>
+        <input type="Password" class="form-control" placeholder="@Common.Password" asp-for="Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div>
+        <input type="submit" value="@Common.Login" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

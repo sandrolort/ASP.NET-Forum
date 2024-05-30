@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Services.Contracts\Services.Contracts.csproj" />
+      <ProjectReference Include="..\Validators\Validators.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Asp.Versioning.Mvc" Version="6.4.1" />
+      <PackageReference Include="FluentValidation" Version="11.9.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Swashbuckle.AspNetCore.Annotations">
+        <HintPath>..\..\..\..\..\..\.nuget\packages\swashbuckle.aspnetcore.annotations\6.5.0\lib\net6.0\Swashbuckle.AspNetCore.Annotations.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

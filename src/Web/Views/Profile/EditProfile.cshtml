@@ -1,0 +1,31 @@
+@using Web.Resources
+@model UserUpdateModelWithImage
+
+@{
+    ViewData["Title"] = @Common.EditProfile;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <label>@Common.Username</label>
+        <input type="text" class="form-control" placeholder="@Common.Username" asp-for="@Model.UserName">
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div>
+        <label>@Common.Email</label>
+        <input type="email" class="form-control" placeholder="@Common.Email" asp-for="@Model.Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label>@Common.ProfilePicture</label>
+        <input type="file" class="form-control" asp-for="@Model.ProfilePic" />
+    </div>
+    <div>
+        <input type="submit" value="@Common.Update" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

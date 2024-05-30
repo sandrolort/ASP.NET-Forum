@@ -1,0 +1,32 @@
+@using Web.Resources
+@model TopicUpdateModelWithImage
+
+@{
+    ViewData["Title"] = @Common.Update;
+    Layout = "_Layout";
+}
+
+<p>@Common.Update</p>
+<form method="post" enctype="multipart/form-data">>
+    <div>
+        <label>@Common.Title</label>
+        <input type="text" class="form-control" placeholder="Enter title" asp-for="@Model.Title">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div>
+        <label>@Common.Content</label>
+        <textarea class="form-control" placeholder="Content" style="height: 200px" asp-for="@Model.Content"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <div>
+        <label>@Common.BackgroundImage</label>
+        <input type="file" class="form-control" asp-for="@Model.Image" />
+    </div>
+    <div>
+        <input type="submit" value="@Common.Update" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

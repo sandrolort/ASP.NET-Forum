@@ -1,0 +1,149 @@
+@using Web.Resources
+@model ProfileViewModel
+
+@{
+    ViewData["Title"] = @Common.Profile;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* string Id, *@
+@* string UserName,  *@
+@* string Email,  *@
+@* string ProfilePicUrl,  *@
+@* bool IsAdmin,  *@
+@* bool IsBanned *@
+
+<div class="card">
+    <div class="card-header">
+        <h2>@Model.User.UserName</h2>
+    </div>
+    <div class="card-body">
+        <img src="@Model.User.ProfilePicUrl" class="rounded-circle user" style="width: 150px; height: 150px" alt="Profile Picture">
+        <h3>@Model.User.UserName</h3>
+        <p>@Common.Email: @Model.User.Email</p>
+        <p>@Common.Admin @Model.User.IsAdmin</p>
+        <p>@Common.Banned @Model.User.IsBanned</p>
+        @if (User.IsInRole("Admin") && Model.User is { IsAdmin: false, IsBanned: false })
+        {
+            <button id="banBtn" class="btn btn-danger">დაბანვა (wash'em)</button>
+        }
+        else if (User.IsInRole("Admin") && Model.User is { IsAdmin: false, IsBanned: true })
+        {
+            <form method="post" action="/Unban">
+                <input type="text" name="UserId" value="@Model.User.Id" hidden>
+                <button type="submit" class="btn btn-success">განბანვა (unwash'em)</button>
+            </form>
+        }
+    </div>
+    
+    <div id="banModal" class="modal" style="margin-top: 100px">
+        <div class="card">
+            <div class="card-body">
+                <span class="close">&times;</span>
+                <form method="post" action="/Ban">
+                    <div>
+                        <label>@Common.Id</label>
+                        <input type="text" class="form-control" id="UserId" name="UserId" value="@Model.User.Id">
+                        <span asp-validation-for="@Model.BanModel.UserId" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label>@Common.Reason</label>
+                        <input type="text" class="form-control" id="Reason" name="Reason" placeholder="@Common.BanReasonPlaceholder" value="@Model.BanModel.Reason">
+                        <span asp-validation-for="@Model.BanModel.Reason" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label>@Common.Date</label>
+                        <input type="date" class="form-control" id="BanEndDate" name="BanEndDate" placeholder="Enter Date:" value="@DateTime.Today.AddDays(1)">
+                        <span asp-validation-for="@Model.BanModel.BanEndDate" class="text-danger"></span>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="@Common.Ban">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("banModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("banBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    
+    <div class="card-header">
+        <h2>@Common.Topics</h2>
+    </div>
+    
+    <div class="card-body">
+        <ul>
+            @foreach (var topic in Model.Topics)
+            {
+                <li><a href="../Topics/@topic.Id">
+                    @topic.Title
+                </a></li>
+            }
+        </ul>
+    </div>
+    
+    <div class="card-header">
+        <h2>@Common.Comments</h2>
+    </div>
+    
+    <div class="card-body">
+        <ul>
+            @foreach (var comment in Model.Comments)
+            {
+                <li><a href="../Topics/@comment.TopicId">
+                    Topic @comment.TopicId - @comment.Content
+                </a></li>
+            }
+        </ul>
+    </div>
+    @if (Model.IsCurrentUser)
+    {
+        <div class="card-footer">
+            <a href="@Url.Action("EditProfile")" class="btn btn-primary">@Common.EditProfile</a>
+            <a href="@Url.Action("ChangePassword")" class="btn btn-primary">@Common.ChangePassword</a>
+            <a href="@Url.Action("DeleteProfile")" class="btn btn-danger">@Common.DeleteProfile</a>
+        </div>
+    }
+    
+    <script>
+        async function BanUser(topicId) {
+            try {
+                let response = await $.ajax({
+                    url: '/Ban/'+topicId,
+                    type: 'POST',
+                    data: topicId
+                });
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            window.location.href = '/Topics';
+        }
+    </script>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

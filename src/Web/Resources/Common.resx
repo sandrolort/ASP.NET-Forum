@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Topic" xml:space="preserve">
+        <value>Topic</value>
+    </data>
+    <data name="Content" xml:space="preserve">
+        <value>Content</value>
+    </data>
+    <data name="Author" xml:space="preserve">
+        <value>Author</value>
+    </data>
+    <data name="CreateDate" xml:space="preserve">
+        <value>Created On</value>
+    </data>
+    <data name="Actions" xml:space="preserve">
+        <value>Actions</value>
+    </data>
+    <data name="Id" xml:space="preserve">
+        <value>Id</value>
+    </data>
+    <data name="Email" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="Admin" xml:space="preserve">
+        <value>Admin</value>
+    </data>
+    <data name="Banned" xml:space="preserve">
+        <value>Banned</value>
+    </data>
+    <data name="Details" xml:space="preserve">
+        <value>Details</value>
+    </data>
+    <data name="Username" xml:space="preserve">
+        <value>Username</value>
+    </data>
+    <data name="Password" xml:space="preserve">
+        <value>Password</value>
+    </data>
+    <data name="Login" xml:space="preserve">
+        <value>Login</value>
+    </data>
+    <data name="Register" xml:space="preserve">
+        <value>Register</value>
+    </data>
+    <data name="ProfilePicture" xml:space="preserve">
+        <value>Profile Picture</value>
+    </data>
+    <data name="ChangePassword" xml:space="preserve">
+        <value>Change Password</value>
+    </data>
+    <data name="OldPassword" xml:space="preserve">
+        <value>Old Password</value>
+    </data>
+    <data name="NewPassword" xml:space="preserve">
+        <value>New Password</value>
+    </data>
+    <data name="DeleteUserProfileQuestion" xml:space="preserve">
+        <value>Are you sure you want to delete your profile?</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+        <value>Delete</value>
+    </data>
+    <data name="DeleteProfile" xml:space="preserve">
+        <value>Delete Profile</value>
+    </data>
+    <data name="EditProfile" xml:space="preserve">
+        <value>Edit Profile</value>
+    </data>
+    <data name="Update" xml:space="preserve">
+        <value>Update</value>
+    </data>
+    <data name="Profile" xml:space="preserve">
+        <value>Profile</value>
+    </data>
+    <data name="Reason" xml:space="preserve">
+        <value>Reason</value>
+    </data>
+    <data name="Date" xml:space="preserve">
+        <value>Date</value>
+    </data>
+    <data name="BanReasonPlaceholder" xml:space="preserve">
+        <value>You have been banned from mickey mouse club for inappropriate behaviour!</value>
+    </data>
+    <data name="Ban" xml:space="preserve">
+        <value>Ban</value>
+    </data>
+    <data name="Logout" xml:space="preserve">
+        <value>Logout</value>
+    </data>
+    <data name="Privacy" xml:space="preserve">
+        <value>How we steal your data (Privacy Policy)</value>
+    </data>
+    <data name="CreateTopic" xml:space="preserve">
+        <value>Create Topic</value>
+    </data>
+    <data name="CreateTopicNote" xml:space="preserve">
+        <value>Do note that Admins will need to approve your post before its visible. You also need sufficient comments to post.</value>
+    </data>
+    <data name="Title" xml:space="preserve">
+        <value>Title</value>
+    </data>
+    <data name="BackgroundImage" xml:space="preserve">
+        <value>Background Image</value>
+    </data>
+    <data name="CreateComment" xml:space="preserve">
+        <value>Create comment</value>
+    </data>
+    <data name="Create" xml:space="preserve">
+        <value>Create</value>
+    </data>
+    <data name="WelcomeToTopics" xml:space="preserve">
+        <value>Welcome to the Topics Page!</value>
+    </data>
+    <data name="Search" xml:space="preserve">
+        <value>Search</value>
+    </data>
+    <data name="Sort" xml:space="preserve">
+        <value>Sort</value>
+    </data>
+    <data name="Comments" xml:space="preserve">
+        <value>Comments</value>
+    </data>
+    <data name="Previous" xml:space="preserve">
+        <value>Previous</value>
+    </data>
+    <data name="Next" xml:space="preserve">
+        <value>Next</value>
+    </data>
+    <data name="Topics" xml:space="preserve">
+        <value>Topics</value>
+    </data>
+    <data name="Profiles" xml:space="preserve">
+        <value>Profiles</value>
+    </data>
+    <data name="TopicIs" xml:space="preserve">
+        <value>Topic is</value>
+    </data>
+    <data name="ModifiedDate" xml:space="preserve">
+        <value>Modified on</value>
+    </data>
+    <data name="State" xml:space="preserve">
+        <value>State</value>
+    </data>
+    <data name="LastActivity" xml:space="preserve">
+        <value>Last Activity</value>
+    </data>
+</root>

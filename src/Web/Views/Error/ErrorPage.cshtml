@@ -1,0 +1,44 @@
+@using Web.Resources
+@using ErrorDetails = Common.DTOs.ErrorDetails
+@model ErrorDetails
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-danger">@Model.StatusCode</h1>
+            @* 400, 403, 404, 409, 500 *@
+            @switch (Model.StatusCode)
+            {
+                case 400:
+                    <h2 class="text-danger">@ErrorTitles.BadRequest!</h2>
+                    <h5 class="text-danger">@Model.Message</h5>
+                    <img src="~/images/400.jpg" style="" class="img-fluid" alt="404">
+                    break;
+                case 403:
+                    <h2 class="text-danger">@ErrorTitles.Forbidden!</h2>
+                    <h5 class="text-danger">@Model.Message</h5>
+                    <img src="~/images/403.jpg" class="img-fluid" alt="403">
+                    break;
+                case 404:
+                    <h2 class="text-danger">@ErrorTitles.NotFound!</h2>
+                    <h5 class="text-danger">@Model.Message</h5>
+                    <img src="~/images/404.jpg" class="img-fluid" alt="404">
+                    break;
+                case 409:
+                    <h2 class="text-danger">@ErrorTitles.Conflict!</h2>
+                    <h5 class="text-danger">@Model.Message</h5>
+                    <img src="~/images/409.jpg" class="img-fluid" alt="409">
+                    break;
+                default:
+                    <h2 class="text-danger">@ErrorTitles.InternalError</h2>
+                    <h5 class="text-danger">@Model.Message</h5>
+                    <img src="~/images/500.jpg" class="img-fluid" alt="505">
+                    break;
+            }
+        </div>
+    </div>
+</div>

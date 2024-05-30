@@ -1,0 +1,34 @@
+## ToDo:
+- [x] მონაცემთა ბაზა SQL server 
+- [x] ORM – Entity Framework Core Code First, (Seed, Migration)
+- [x] Web Api Core, 
+- [x] Worker 
+- [x] Api Versioning 
+- [x] Asp Authorization 
+- [x] Fluent Api 
+- [x] Mapster ან Mapper 
+- [x] Jwt auth 
+- [x] Clean Architecture 
+- [x] ასინქრონული მეთოდები, cancelationtoken ის გამოყენება
+- [x] unit testing (ერთი მსხვილი კლასის მთლიანი დაფარვა line & branch - application layer-დან)
+- [x] MVC Core
+- [x] client-side validation-ს
+- [x] Server-side validation -ს (Fluent)
+- [x] Health checks
+- [x] Fetch user ID from JWT tokens
+- [x] Image upload
+- [x] Swagger
+- [x] Global Exception Handling
+- [x] CommentCount update (DbConcurrency)
+- [x] appsettings.development.json
+- [x] Fix Application layer depending on Infrastructure layer (Logging)
+- [x] Fix archived topics (should be read only)
+- [x] Add the missing API endpoints which exist in Web
+- [x] Get 404 page when not on API
+- [x] Remove soft delete
+- [x] Email search
+- [x] Retrieve connection string from env. variables
+- [x] Make use of UpdateDate
+- [x] Time to time, reevaluate the commentcount
+- [x] Add edit button to the topic
+- [x] Add createDate, updateDate to the topic as well as status and isactive.
